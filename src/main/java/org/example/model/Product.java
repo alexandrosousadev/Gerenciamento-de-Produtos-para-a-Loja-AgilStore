@@ -7,9 +7,21 @@ public class Product {
     private int stock;
     private double price;
 
-    // Construtor
+    // Construtor padrão
+    public Product() {
+    }
+
+    // Construtor com todos os atributos
     public Product(int id, String name, String category, int stock, double price) {
         this.id = id;
+        this.name = name;
+        this.category = category;
+        this.stock = stock;
+        this.price = price;
+    }
+
+    // Construtor sem o ID
+    public Product(String name, String category, int stock, double price) {
         this.name = name;
         this.category = category;
         this.stock = stock;
@@ -21,7 +33,7 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) { // Adicionando o método setId
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -57,9 +69,12 @@ public class Product {
         this.price = price;
     }
 
+    // Método toString() para exibição legível dos dados
     @Override
     public String toString() {
-        return String.format("ID: %d, Nome: %s, Categoria: %s, Estoque: %d, Preço: R$ %.2f",
-                id, name, category, stock, price);
+        return String.format(
+                "ID: %d, Nome: %s, Categoria: %s, Estoque: %d, Preço: R$ %.2f",
+                id, name, category, stock, price
+        );
     }
 }
